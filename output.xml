@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.6 on win32)" generated="20230802 10:40:20.553" rpa="false" schemaversion="3">
+<suite id="s1" name="Image verify" source="D:\Image_verify">
+<suite id="s1-s1" name="Testsuite" source="D:\Image_verify\testsuite">
+<suite id="s1-s1-s1" name="Testscript1" source="D:\Image_verify\testsuite\testscript1.robot">
+<test id="s1-s1-s1-t1" name="Example Test" line="6">
+<kw name="Image To Base64" library="custom_keywords">
+<var>${base64_image}</var>
+<arg>testsuite/download.png</arg>
+<msg timestamp="20230802 10:40:20.604" level="INFO">${base64_image} = /9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3...</msg>
+<status status="PASS" starttime="20230802 10:40:20.603" endtime="20230802 10:40:20.604"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${image_tag}</var>
+<arg>&lt;img src="data:image/png;base64,${base64_image}" alt="Uploaded Image"/&gt;</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230802 10:40:20.606" level="INFO">${image_tag} = &lt;img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3...</msg>
+<status status="PASS" starttime="20230802 10:40:20.605" endtime="20230802 10:40:20.606"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${image_tag}</arg>
+<arg>html=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230802 10:40:20.607" level="INFO" html="true">&lt;img src="data:image/png;base64,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" alt="Uploaded Image"/&gt;</msg>
+<status status="PASS" starttime="20230802 10:40:20.606" endtime="20230802 10:40:20.607"/>
+</kw>
+<status status="PASS" starttime="20230802 10:40:20.602" endtime="20230802 10:40:20.607"/>
+</test>
+<status status="PASS" starttime="20230802 10:40:20.596" endtime="20230802 10:40:20.609"/>
+</suite>
+<status status="PASS" starttime="20230802 10:40:20.593" endtime="20230802 10:40:20.612"/>
+</suite>
+<status status="PASS" starttime="20230802 10:40:20.558" endtime="20230802 10:40:20.613"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Image verify">Image verify</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Testsuite">Image verify.Testsuite</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Testscript1">Image verify.Testsuite.Testscript1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
