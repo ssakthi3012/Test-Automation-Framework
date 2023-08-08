@@ -1,0 +1,25 @@
+*** Settings ***
+Library    OperatingSystem
+#Library    ../base/Readfile.py
+Library      String
+*** Variables ***
+#${csv_file_name}    D:\\TAF_ADB\\test data\\test_input.csv
+
+*** Keywords ***
+Read CSV FILE
+    [Arguments]    ${csv_file_name}
+    ${csv}    Get File    ${csv_file_name}
+    ${lines}    Split To Lines    ${csv}
+    FOR    ${line}    IN    @{lines}
+        Log To Console    ${line}
+    END
+
+    #call without header
+    Read CSV FILE
+
+    [Arguments]    ${csv_file_name}
+    ${csv}    Get File    ${csv_file_name}
+    ${lines}    Split To Lines    ${csv}    1
+    FOR    ${line}    IN    @{lines}
+        Log To Console    ${\n}${line}
+    END
