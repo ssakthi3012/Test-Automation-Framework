@@ -1,0 +1,40 @@
+name: Release Test Automation Framework
+
+on:
+  push:
+    branches:
+      -  release-branch
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install robotframework
+
+      - name: Build and Package
+        run: |
+          # Add any build steps specific to your framework
+          # For example, compile Python files, generate documentation, etc.
+          # You might want to use scripts or commands from your framework's documentation.
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.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 }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+         
